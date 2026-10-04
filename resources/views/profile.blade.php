@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Card - {{ $nama }}</title>
-    <!-- Google Fonts & Font Awesome Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -60,7 +59,7 @@
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    object-position: top; /* Menyesuaikan posisi foto agar bagian atas/hijab tidak kepotong */
+    object-position: top; 
     border: 5px solid #f0f9ff; 
     box-shadow: 0 8px 16px rgba(14, 165, 233, 0.15);
 }
@@ -68,14 +67,14 @@
         .profile-name {
             font-size: 22px;
             font-weight: 600;
-            color: #0369a1; /* Biru Tua Soft */
+            color: #0369a1; 
             margin-bottom: 5px;
             text-align: center;
         }
 
         .profile-role {
             font-size: 14px;
-            color: #0284c7; /* Biru Sedang */
+            color: #0284c7; 
             font-weight: 400;
             margin-bottom: 30px;
             text-transform: uppercase;
@@ -90,7 +89,7 @@
         .info-item {
             display: flex;
             align-items: center;
-            background: #f0f9ff; /* Background Item Biru Sangat Muda */
+            background: #f0f9ff; 
             border: 1px solid #e0f2fe;
             padding: 14px 18px;
             border-radius: 12px;
@@ -106,7 +105,7 @@
         .info-icon {
             width: 40px;
             height: 40px;
-            background: #bae6fd; /* Icon Box Biru Muda */
+            background: #bae6fd; 
             color: #0284c7;
             border-radius: 10px;
             display: flex;
@@ -137,17 +136,12 @@
 <body>
 
     <div class="card-container">
-        
-        <!-- Container Foto Profile di Tengah -->
         <div class="profile-img-container">
             <img src="{{ asset('img/profile.png') }}" alt="Profile Photo" class="profile-img" onerror="this.src='https://ui-avatars.com/api/?name={{ urlencode($nama) }}&background=38bdf8&color=fff&size=128'">
         </div>
 
-        <!-- Identity -->
-<!-- Identity -->
 <div class="profile-name">{{ preg_replace('/(?<!^)([A-Z])/', ' $1', $nama) }}</div>        <div class="profile-role">Mahasiswa</div>
 
-        <!-- Details -->
         <div class="info-list">
             <div class="info-item">
                 <div class="info-icon">
