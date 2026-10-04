@@ -6,6 +6,7 @@ use App\Models\Kelas;
 use App\Models\UserModel;
 use Illuminate\Http\Request;
 
+
 class UserController extends Controller
 {
     public $userModel;
@@ -41,10 +42,10 @@ class UserController extends Controller
 {
     $this->userModel->create([
         'nama'     => $request->input('nama'),
-        'npm'      => $request->input('npm'), // Ubah key dari 'nim' menjadi 'npm'
+        'npm'      => $request->input('npm'),
         'kelas_id' => $request->input('kelas_id'),
     ]);
 
-    return redirect()->to('/user');
+    return redirect()->route('user.index');
 }
 }

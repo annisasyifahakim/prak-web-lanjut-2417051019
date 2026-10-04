@@ -3,7 +3,6 @@
 @section('content')
 <div class="row justify-content-center">
     <div class="col-md-5">
-        
         <div class="card border-0 shadow-sm rounded-3 p-4 bg-white position-relative">
             
             <div class="d-flex justify-content-between align-items-center mb-3">
@@ -33,9 +32,11 @@
                     </label>
                     <select name="kelas_id" id="kelas_id" class="form-select form-select-sm py-2 px-3 border-secondary-subtle rounded-2" required>
                         <option value="" disabled selected>-- Pilih Kelas --</option>
-                        @foreach ($kelas as $kelasItem)
-                            <option value="{{ $kelasItem->id }}">{{ $kelasItem->nama_kelas }}</option>
-                        @endforeach
+                       @foreach ($kelas as $kelasItem)
+    <option value="{{ $kelasItem->id }}">
+        {{ $kelasItem->nama_kelas ?? $kelasItem->nama }}
+    </option>
+@endforeach
                     </select>
                 </div>
 
