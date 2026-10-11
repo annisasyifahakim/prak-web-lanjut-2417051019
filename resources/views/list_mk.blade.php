@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+@if(session('success'))
+    <div style="background-color: #d4edda; color: #155724; padding: 10px; margin-bottom: 15px; border-radius: 5px;">
+        {{ session('success') }}
+    </div>
+@endif
 <div class="container">
     <h1>Daftar Mata Kuliah</h1>
     <a href="{{ route('matakuliah.create') }}">Tambah Mata Kuliah Baru</a><br><br>
@@ -8,19 +13,28 @@
     <table border="1" cellpadding="10" cellspacing="0">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Nama Mata Kuliah</th>
-                <th>SKS</th>
+                <td>ID</td>
+            <td>NAMA MATA KULIAH</td>
+            <td>SKS</td>
+            <td>Aksi</td>
             </tr>
         </thead>
         <tbody>
             @foreach ($mks as $mk)
             <tr>
                 <td>{{ $mk->id }}</td>
-                <td>{{ $mk->nama_mk }}</td>
-                <td>{{ $mk->sks }}</td>
-            </tr>
-            @endforeach
+            <td>{{ $mk->nama_mk }}</td>
+            <td>{{ $mk->sks }}</td>
+            <td>
+             <a href="{{ route('matakuliah.edit', $mk->id) }}">Edit</a> |
+            <form action="{{ route('matakuliah.destroy', $mk->id) }}" method="POST" style="display:inline;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</button>
+                </form>
+            </td>
+        </tr>
+        @endforeach
         </tbody>
     </table>
 </div>

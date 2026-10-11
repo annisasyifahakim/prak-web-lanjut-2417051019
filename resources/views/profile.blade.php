@@ -16,7 +16,6 @@
         }
 
         body {
-            /* Background Gradasi Biru Muda Soft */
             background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
             min-height: 100vh;
             display: flex;

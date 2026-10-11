@@ -9,13 +9,18 @@ class UserModel extends Model
 {
     use HasFactory;
 
-    protected $table = 'user';
-    protected $guarded = ['id'];
+    protected $table = 'users';
     
-    public function getUser()
+    protected $fillable = [
+        'name',
+        'npm',
+        'email',
+        'password',
+        'kelas_id'
+    ];
+
+    public function kelas()
     {
-        return $this->join('kelas', 'kelas.id', '=', 'user.kelas_id')
-                    ->select('user.*', 'kelas.nama_kelas as nama_kelas')
-                    ->get();
+        return $this->belongsTo(Kelas::class, 'kelas_id');
     }
 }
